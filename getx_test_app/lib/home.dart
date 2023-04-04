@@ -29,9 +29,14 @@ class _HomeState extends State<Home> {
             // GetBuilder = state가 변할 때 마다 화면에 다시 그려주는 역할
             GetBuilder<Controller>(
               init: Controller(),
-              //                              controller에 접근하여 x의 값을 가져옴
-              builder: (_) =>
-                  Text('Current value is: ${Get.find<Controller>().x}'),
+              builder: (_) => Text(
+                // Controller Class에 접근하여 x의 값을 가져옴
+                'Current value is: ${Get.find<Controller>().x}',
+                style: const TextStyle(fontSize: 20),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             ElevatedButton(
               onPressed: () {

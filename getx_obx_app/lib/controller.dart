@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:getx_obx_app/model.dart';
 
 class Controller extends GetxController {
+  // .obs << Rx Type으로 받음
   final person = Person().obs; // 데이터를 관찰할 수 있는 observable 이라고 불림
 
   updateInfo() {

@@ -12,6 +12,11 @@ class ShoppingController extends GetxController {
     fetchData();
   }
 
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
   fetchData() async {
     await Future.delayed(const Duration(seconds: 2));
     var productData = [

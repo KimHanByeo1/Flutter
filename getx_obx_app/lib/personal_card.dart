@@ -33,7 +33,11 @@ class PersonalCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: const Color(0xFF89dad0)),
               child: Center(
-                  child: Obx(() => Text('Age: ${controller.person().age}'))),
+                child: Obx(
+                  // () => Text('Age: ${controller.person().age}'),
+                  () => Text(Get.find<Controller>().person().age.toString()),
+                ),
+              ),
             ),
             Container(
               margin: const EdgeInsets.all(20),
