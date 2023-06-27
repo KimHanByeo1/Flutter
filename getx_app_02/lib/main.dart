@@ -1,8 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:getx_app_02/Model/product_model.dart';
-import 'package:getx_app_02/View/mypage.dart';
+import 'package:getx_app_02/firebase_options.dart';
+import 'package:getx_app_02/login_signup/Signup/Controller/authController.dart';
+import 'package:get/get.dart';
+import 'package:getx_app_02/login_signup/login/View/login.dart';
 
-void main() {
+// void main() {
+//   runApp(const MyApp());
+// }
+
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    name: 'getx',
+    options: DefaultFirebaseOptions.currentPlatform,
+  ).then(
+    (value) => Get.put(AuthController()),
+  );
   runApp(const MyApp());
 }
 
@@ -11,14 +27,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late Product product;
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: MyPage(),
+      // home: MyPage(),
+      home: const LoginPage(),
     );
   }
 }

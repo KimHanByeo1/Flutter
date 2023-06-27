@@ -82,7 +82,6 @@ class Home extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Card(
                       child: Column(
-                        // crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(controller.model[index].code),
                           Text(controller.model[index].name),
@@ -95,9 +94,20 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () => controller.getJSONData(),
-              child: const Text('OK'),
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FloatingActionButton(
+                    backgroundColor: Colors.blue,
+                    onPressed: () {
+                      controller.getJSONData();
+                    },
+                    child: const Icon(Icons.add),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
